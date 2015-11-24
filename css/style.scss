@@ -7,8 +7,6 @@ $color-tertiary: #C94D28;
 /* Reset **************/
 
 * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -38,7 +36,7 @@ header, footer, nav, section, article, hgroup, figure {
 body {
   background: #fff;
   color: #222222;
-  font: 120%/1.4 "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font: 1em/1.4 "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   padding: 1em 1em 3em;
   -webkit-text-size-adjust: 100%;
   border-top: 1em solid $color-primary;
@@ -76,14 +74,14 @@ body {
     outline: 0;
   }
 
-  h1 {
+  .organization {
     font-size: 2em;
     line-height: 1.25;
     letter-spacing: -0.02em;
     margin-bottom: 0.4em;
   }
 
-  h2 {
+  .project {
     font-size: 1em;
     line-height: 1.1;
     margin: 0 0 0.4em;
@@ -111,6 +109,7 @@ body {
   margin-top: 2.5em;
   margin-left: .95em;
   position: relative;
+  max-width: 30em;
 }
 
 .timeline:before {
@@ -127,15 +126,27 @@ body {
 
 /* Individual Timeline Item */
 .tl-node {
-  padding-left: 1em;
+  padding-left: 2em;
   margin-bottom: 3em;
   position: relative;
+}
+
+.tl-stamp {
+  font-size: 0.65em;
+  color: gray;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tl-heading {
+  margin: .25rem 0;
+  font: bold 1.2em/1.2 sans-serif;
 }
 
 .tl-node a {
   display: block;
   color: $color-tertiary;
-  font-size: .85em;
+  font-size: 1rem;
 }
 
 .tl-node:before {
@@ -150,12 +161,16 @@ body {
   border: 5px solid $color-secondary;
 }
 
-/* Timestamp */
-.tl-stamp {
-  font-size: 0.55em;
-  color: gray;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.tl-node.future {
+  &:before {
+    border: dotted 2px #ddd;
+    width: 27px;
+    height: 27px;
+  }
+  .tl-heading {
+    color: #aaa;
+    font-weight: normal;
+  }
 }
 
 /* End Timeline **************/
